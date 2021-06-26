@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+        <style>
+        /*Global style*/
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    display: relative;
+}
+a {
+    text-decoration: none;
+    color: #555;
+}
+p {
+    color: #555;
+}
+.container {
+    max-width: 1170px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.small-container {
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.title {
+    text-align: center;
+    font-size: 30px;
+    margin: 100px 0 40px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+}
+.title::after{
+    content: '';
+    background: #fabb5d;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+p {
+    text-align: justify;
+}
+.search-box {
+    position: absolute;
+    top: 10px;
+    left: 1160px;
+    transform: translate(-100%,-0%);
+    height: 50px;
+    border-radius: 40px;
+    padding: 10px;
+    display: flex;
+}
+.search-box:hover > .search-txt {
+    width: 240px;
+    padding: 0 6px;
+    background-color: #f9e29c;
+    border-radius: 20px;
+}
+.search-btn {
+    color: #555;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;            
+}
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #555;
+    font-size: 14px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+/*header section*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fabb5d;
+    padding: 10px 100px;
+    z-index: 10000;
+    transition: 0.5s;
+}
+.nav {
+    flex: 1;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 400px;
+    display: inline-block;
+    list-style: none;
+}
+.nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+.nav li .active {
+    color: #f9e29c;
+}
+.nav-right i {
+    font-size: 25px;
+    padding: 10px;
+}
+header li a:hover,
+header i:hover {
+    color: #f9e29c;
+}
+
+/*Product*/
+.col-3 {
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+.col-3 img {
+    width: 100%;
+}
+h4 {
+    color: #555;
+    font-weight: normal;
+    padding-top: 5px;
+}
+.col-3 p {
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.rating .fa{
+    color: #fabb5d;
+    padding-top: 5px;
+}
+.col-3:hover {
+    transform: translateY(-5px);
+}
+button {
+    padding: 6px;
+    margin-right: 6px;
+    background: #fabb5d;
+    border-radius: 30px;
+    color: #555;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid #f9e29c;
+}
+button:hover {
+    background: #f9e29c;
+}
+
+/*footer*/
+.row-1{
+	display: flex;
+    flex-wrap: wrap;
+    padding: 0 80px;
+}
+ul{
+	list-style: none;
+}
+.footer{
+    margin: 0;
+    bottom: 0;
+    width: 100%;
+    position: relative;
+    color: black;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+	background:  #f9e29c;
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+.col-8{
+   width: 25%;
+   padding-bottom: 20px;
+   padding-left: 15px;
+}
+.col-8 h4{
+	font-size: 18px;
+	color: #434343;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.col-8 h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+    background: -webkit-linear-gradient(left, #fabb5d, #FBE551);
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.col-8 ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.col-8 ul li a{
+	font-size: 16px;
+	color: #434343;
+	text-decoration: none;
+	font-weight: 300;
+	display: block;
+	transition: all 0.3s ease;
+}
+.col-8 ul li a:hover{
+	color: #434343;
+	padding-left: 8px;
+}
+.col-8 .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #434343;
+	transition: all 0.5s ease;
+}
+.col-8 .social-links a:hover{
+	color: #24262b;
+	background-color: #fabb5d;
+}
+.bottom center {
+	padding: 5px;
+	font-size: 0.9375rem;
+	background: #f3b24f;
+}
+.bottom center i {
+	color: #f9e29c;
+}
+.bottom center a {
+	color: #f9e29c;
+	text-decoration: none;
+}
+.bottom center a:hover {
+	text-decoration: underline;
+}
+
+.row-1 .place .fa {
+	font-size: 1.5rem;
+	text-align: center;
+	transition: 0.3s;
+    cursor: pointer;
+}
+.row-1 .place .fa:hover {
+	color:#fabb5d;
+}
+/*responsive*/
+@media(max-width: 767px){
+    .col-8{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+    }
+    @media(max-width: 574px){
+    .col-8{
+        width: 100%;
+    }
+    }
+        </style>
+    </head>
+    <body>
+        <header>
+            <img class="logo" src="img/logo.png" width="100px" height="50px">
+            <ul class="nav">
+                <li><a href="home.html" class="active">HOME</a></li>
+                <li><a href="product.html">PRODUCTS</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-box">
+                    <input class="search-txt" type="text" placeholder="Search here ...">
+                    <a class="search-btn" href="#">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <a href="form.html"><i class="fa fa-user"></i></a>
+                <a href="#"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+        </header>
+
+        <div id="product">
+            <div class="small-container">
+                <h2 class="title">All Products</h2>
+                <div class="row">
+                    <div class="col-3">
+                        <img src="img/img1.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img2.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img3.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img4.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img1.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img2.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img3.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img4.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img1.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img2.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img3.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img4.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img1.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img2.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img3.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img4.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img1.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img2.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img3.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img4.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img1.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img2.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img3.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="img/img4.jpeg">
+                        <h4>Red Printed T-Shirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rp.50.000</p>
+                        <button href="#">Add to Cart</button>
+                        <button href="#">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <footer class="footer">
+            <div class="container">
+              <div class="row-1">
+                <div class="col-8">
+                  <h4>Kaos Tiram</h4>
+                  <ul class="place">
+                    <li><a href="#"><i class="fa fa-map-marker"></i>
+                        <span class="text">Wonoharjo,<br> Kec. Pangandaran,<br> Kabupaten Ciamis,<br> Jawa Barat 46396</span>                    </span></a></li>
+                    <li><a href="#"><i class="fa fa-phone"></i>
+                        <span class="text">0813-9456-4012</span></a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i>
+                        <span class="text">kaostiram@gmail.com</span></a></li>
+                  </ul>
+                </div>
+                <div class="col-8">
+                  <h4>Quick Links</h4>
+                  <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#product">Product</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                  </ul>
+                </div>
+                <div class="col-8">
+                  <h4>Marketplace</h4>
+                  <ul>
+                    <li><a href="#">Lazada</a></li>
+                    <li><a href="#">Shoppe</a></li>
+                    <li><a href="#">Tokopedia</a></li>
+                    <li><a href="#">Blibli</a></li>
+                  </ul>
+                </div>
+                <div class="col-8">
+                  <h4>follow us</h4>
+                  <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </footer>
+        <div class="bottom">
+            <center>
+                <span class="credit">Created By <a href="home.html">Kaos Tiram</a> | </span>
+                <i class="fa fa-copyright"></i><span> 2020 All right reserved. </span>
+            </center>
+        </div>
+        <!--Footer end-->
+    </body>
+</html>
